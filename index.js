@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req,res)=>{
-    res.send('Hello World');
+    res.send('Hello Rocketseat');
 });
 //primeiro parametro é o que vem depois da barra lá no localhost
 //o segundo é uma função que recebe dois parâmetros: req e res
