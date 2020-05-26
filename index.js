@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
 //Iniciando o app
 const app = express();
 app.use(express.json());//Permite que eu envie dados para minha aplicação no formato .json()
+app.use(cors());
 
 // Iniciando o Banco de Dados
 mongoose.connect('mongodb://192.168.99.100:27017:27017/nodeapi', 
