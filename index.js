@@ -11,21 +11,11 @@ mongoose.connect('mongodb://192.168.99.100:27017:27017/nodeapi',
 
 requireDir('./src/models');
 
-const Product = mongoose.model('Product');
+// Rotas
+app.use("/api", require("./src/routes"));
 
-// Primeira Rota
-app.get('/', (req,res)=>{
-    Product.create({
-        title: 'React Native',
-        description: 'Build native apps with React',
-        url: 'http://github.com/facebook/react-native'
-    });
+//O use é como se fosse um coringa. Ele vai receber todo tipo de requisição, ou seja, não
+//só get, put ou delete, mas todo tipo. Toda vez que eu receber uma requisição a partir da
+//rota api, eu vou mandar para o meu arquivo ./src/routes
 
-   return res.send('Hello Rocketseat!');
-});
-//primeiro parametro é o que vem depois da barra lá no localhost
-//o segundo é uma função que recebe dois parâmetros: req e res
-//o req simboliza a requisição que eu estou fazendo ao servidor, e vai conter detalhes dessa informação
-//o res tem a ver com a resposta que eu vou dar para a requisição
-//back-end, no geral, é fazer uma requisição e o servidor devolvendo uma resposta
 app.listen(3001);
